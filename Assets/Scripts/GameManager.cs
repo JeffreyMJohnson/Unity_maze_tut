@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class GameManager : MonoBehaviour {
     public Maze mazePrefab;
@@ -23,6 +22,7 @@ public class GameManager : MonoBehaviour {
 
     private void RestartGame()
     {
+        StopAllCoroutines();
         Destroy(mazeInstance.gameObject);
         BeginGame();
     } 
@@ -30,5 +30,6 @@ public class GameManager : MonoBehaviour {
     private void BeginGame()
     {
         mazeInstance = Instantiate(mazePrefab) as Maze;
+        StartCoroutine(mazeInstance.Generate());
     }
 }
