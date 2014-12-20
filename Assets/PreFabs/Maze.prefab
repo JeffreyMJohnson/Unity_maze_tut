@@ -45,7 +45,17 @@ MonoBehaviour:
   cellPrefab: {fileID: 11400000, guid: 821b771c72bbed547bfb0363a2f54cd0, type: 2}
   generationStepDelay: .00999999978
   passagePrefab: {fileID: 11400000, guid: cf27fe7629495d34285ab8ff34a9d0ea, type: 2}
-  wallPrefab: {fileID: 11400000, guid: 2f1477018d5d46c4fb557b6b969f3474, type: 2}
+  wallPrefabs:
+  - {fileID: 11400000, guid: 2f1477018d5d46c4fb557b6b969f3474, type: 2}
+  - {fileID: 11400000, guid: 2f1477018d5d46c4fb557b6b969f3474, type: 2}
+  - {fileID: 11400000, guid: 2f1477018d5d46c4fb557b6b969f3474, type: 2}
+  - {fileID: 11400000, guid: 2f1477018d5d46c4fb557b6b969f3474, type: 2}
+  - {fileID: 11400000, guid: 2f1477018d5d46c4fb557b6b969f3474, type: 2}
+  - {fileID: 11400000, guid: 2f1477018d5d46c4fb557b6b969f3474, type: 2}
+  - {fileID: 11400000, guid: 2f1477018d5d46c4fb557b6b969f3474, type: 2}
+  - {fileID: 11400000, guid: 72f47056729932b4a8d4ea2a09686ad5, type: 2}
+  - {fileID: 11400000, guid: c93363fc5693d1949a23545cad4e10ee, type: 2}
+  - {fileID: 11400000, guid: 0b0a2dc0c9845354f9a4f7f6546844ea, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
