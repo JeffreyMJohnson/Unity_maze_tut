@@ -1,14 +1,14 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &166192
+--- !u!1 &100000
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 466192}
-  - 114: {fileID: 11449282}
+  - 4: {fileID: 400000}
+  - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: Maze
   m_TagString: Untagged
@@ -16,24 +16,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &466192
+--- !u!4 &400000
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 166192}
+  m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11449282
+--- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 166192}
+  m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5b9836c41cfa084c86fa84da292000f, type: 3}
@@ -42,22 +42,10 @@ MonoBehaviour:
   size:
     x: 20
     z: 20
-  cellPrefab: {fileID: 11494990, guid: 821b771c72bbed547bfb0363a2f54cd0, type: 2}
-  passagePrefab: {fileID: 11478606, guid: cf27fe7629495d34285ab8ff34a9d0ea, type: 2}
-  doorPrefab: {fileID: 11446152, guid: 4540bb6a601414c46a49cf178c9301ef, type: 2}
-  wallPrefabs:
-  - {fileID: 11418048, guid: 2f1477018d5d46c4fb557b6b969f3474, type: 2}
-  - {fileID: 11418048, guid: 2f1477018d5d46c4fb557b6b969f3474, type: 2}
-  - {fileID: 11418048, guid: 2f1477018d5d46c4fb557b6b969f3474, type: 2}
-  - {fileID: 11418048, guid: 2f1477018d5d46c4fb557b6b969f3474, type: 2}
-  - {fileID: 11418048, guid: 2f1477018d5d46c4fb557b6b969f3474, type: 2}
-  - {fileID: 11418048, guid: 2f1477018d5d46c4fb557b6b969f3474, type: 2}
-  - {fileID: 11418048, guid: 2f1477018d5d46c4fb557b6b969f3474, type: 2}
-  - {fileID: 11494978, guid: 72f47056729932b4a8d4ea2a09686ad5, type: 2}
-  - {fileID: 11452894, guid: c93363fc5693d1949a23545cad4e10ee, type: 2}
-  - {fileID: 11459842, guid: 0b0a2dc0c9845354f9a4f7f6546844ea, type: 2}
-  generateStepDelay: .00999999978
-  doorProbability: .0500000007
+  cellPrefab: {fileID: 11400000, guid: 821b771c72bbed547bfb0363a2f54cd0, type: 2}
+  generationStepDelay: .00999999978
+  passagePrefab: {fileID: 11400000, guid: cf27fe7629495d34285ab8ff34a9d0ea, type: 2}
+  wallPrefab: {fileID: 11400000, guid: 2f1477018d5d46c4fb557b6b969f3474, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -67,6 +55,6 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 166192}
+  m_RootGameObject: {fileID: 100000}
   m_IsPrefabParent: 1
   m_IsExploded: 1
