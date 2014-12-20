@@ -5,6 +5,15 @@ public class MazeCell : MonoBehaviour {
     public IntVector2 coordinates;
 
     private MazeCellEdge[] edges = new MazeCellEdge[MazeDirections.count];
+    private int initializedEdgeCount;
+
+    public bool IsFullyInitialized
+    {
+        get
+        {
+            return initializedEdgeCount == MazeDirections.count;
+        }
+    }
 
     public MazeCellEdge GetEdge(MazeDirection direction)
     {
@@ -13,16 +22,26 @@ public class MazeCell : MonoBehaviour {
     public void SetEdge(MazeDirection direction, MazeCellEdge edge)
     {
         edges[(int)direction] = edge;
+        initializedEdgeCount++;
     }
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
-
+    public MazeDirection RandomUninitializedDirection
+    {
+        get
+        {
+            int skips = Random.Range(0, MazeDirections.count - initializedEdgeCount);
+            for (int i = 0; i < MazeDirections.count; ++i)
+            {
+                if (edges[i] == null)
+                {
+                    if (skips == 0)
+                    {
+                        return (MazeDirection)i;
+                    }
+                    skips--;
+                }
+            }
+            throw new System.InvalidOperationException("MazeCell has no uninitialized directions left.");
+        }
+    }
 }
