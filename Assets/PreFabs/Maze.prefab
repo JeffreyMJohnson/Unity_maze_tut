@@ -44,6 +44,7 @@ MonoBehaviour:
     z: 20
   cellPrefab: {fileID: 11494990, guid: 821b771c72bbed547bfb0363a2f54cd0, type: 2}
   passagePrefab: {fileID: 11478606, guid: cf27fe7629495d34285ab8ff34a9d0ea, type: 2}
+  doorPrefab: {fileID: 11446152, guid: 4540bb6a601414c46a49cf178c9301ef, type: 2}
   wallPrefabs:
   - {fileID: 11418048, guid: 2f1477018d5d46c4fb557b6b969f3474, type: 2}
   - {fileID: 11418048, guid: 2f1477018d5d46c4fb557b6b969f3474, type: 2}
@@ -56,6 +57,7 @@ MonoBehaviour:
   - {fileID: 11452894, guid: c93363fc5693d1949a23545cad4e10ee, type: 2}
   - {fileID: 11459842, guid: 0b0a2dc0c9845354f9a4f7f6546844ea, type: 2}
   generateStepDelay: .00999999978
+  doorProbability: .0500000007
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
