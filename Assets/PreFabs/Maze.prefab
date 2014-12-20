@@ -58,6 +58,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 72f47056729932b4a8d4ea2a09686ad5, type: 2}
   - {fileID: 11400000, guid: c93363fc5693d1949a23545cad4e10ee, type: 2}
   - {fileID: 11400000, guid: 0b0a2dc0c9845354f9a4f7f6546844ea, type: 2}
+  roomSettings:
+  - floorMaterial: {fileID: 2100000, guid: 4494f1d8c303ba64786b892455ce6ab0, type: 2}
+    wallMaterial: {fileID: 2100000, guid: b8e9656edd8c36146bf1f3a9cf01c4f5, type: 2}
+  - floorMaterial: {fileID: 2100000, guid: 6fac89a34cf32504480f746a949d3d6d, type: 2}
+    wallMaterial: {fileID: 2100000, guid: d007d2dfce14b4b4697693732e8996d7, type: 2}
+  - floorMaterial: {fileID: 2100000, guid: 34a42ec85771c91479b3c084f4c568d9, type: 2}
+    wallMaterial: {fileID: 2100000, guid: 3ff4c0223e0c08d4599fdbfb5f9eb837, type: 2}
+  - floorMaterial: {fileID: 2100000, guid: a34c8ada8279ef9419ec08609387e41b, type: 2}
+    wallMaterial: {fileID: 2100000, guid: c9cef5186046e2649be6c7b5c7ca3987, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
