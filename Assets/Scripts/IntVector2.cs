@@ -1,4 +1,8 @@
-﻿[System.Serializable]
+﻿/*
+ * Convenience function to pass 2 ints along in single object with addition operator
+ * System.Serializable allows Unity to consume this custom struct and show it in property sheet.
+ */
+[System.Serializable]
 public struct IntVector2 {
 
 	public int x, z;

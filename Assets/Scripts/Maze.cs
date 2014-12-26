@@ -25,12 +25,16 @@ public class Maze : MonoBehaviour {
 
 	private List<MazeRoom> rooms = new List<MazeRoom>();
 
+    /*
+     * This is C# feature - setting setter/getter as property of class
+     */
 	public IntVector2 RandomCoordinates {
 		get {
 			return new IntVector2(Random.Range(0, size.x), Random.Range(0, size.z));
 		}
 	}
 
+    //convienience function to check maxe boundaries
 	public bool ContainsCoordinates (IntVector2 coordinate) {
 		return coordinate.x >= 0 && coordinate.x < size.x && coordinate.z >= 0 && coordinate.z < size.z;
 	}
@@ -39,6 +43,8 @@ public class Maze : MonoBehaviour {
 		return cells[coordinates.x, coordinates.z];
 	}
 
+    //made an IEnumerator return type to insert a delay in building for visual effect
+    //gernerationStepDelay is variable to adjust time delay
 	public IEnumerator Generate () {
 		WaitForSeconds delay = new WaitForSeconds(generationStepDelay);
 		cells = new MazeCell[size.x, size.z];
@@ -54,12 +60,14 @@ public class Maze : MonoBehaviour {
         }
 	}
 
+    //place to start maze gen
 	private void DoFirstGenerationStep (List<MazeCell> activeCells) {
 		MazeCell newCell = CreateCell(RandomCoordinates);
 		newCell.Initialize(CreateRoom(-1));
 		activeCells.Add(newCell);
 	}
 
+    //rest of the maze is generated here
 	private void DoNextGenerationStep (List<MazeCell> activeCells) {
 		int currentIndex = activeCells.Count - 1;
 		MazeCell currentCell = activeCells[currentIndex];
