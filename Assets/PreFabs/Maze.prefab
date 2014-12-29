@@ -43,7 +43,7 @@ MonoBehaviour:
     x: 20
     z: 20
   cellPrefab: {fileID: 11400000, guid: 821b771c72bbed547bfb0363a2f54cd0, type: 2}
-  generationStepDelay: .00999999978
+  generationStepDelay: 9.99999975e-06
   passagePrefab: {fileID: 11400000, guid: cf27fe7629495d34285ab8ff34a9d0ea, type: 2}
   doorPrefab: {fileID: 11400002, guid: ddd2858d08f2e45f3b4b479b51caf822, type: 2}
   doorProbability: .100000001

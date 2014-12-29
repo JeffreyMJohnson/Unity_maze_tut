@@ -31,30 +31,70 @@ public class Player : MonoBehaviour {
         }
     }
 
+    [Range(0f, 1f)]
+    public float horizontalMoveAxisDeadZone = .25f;
+    [Range(0f, 1f)]
+    public float verticalMoveAxisDeadZone = .25f;
+    [Range(0f, 1f)]
+    public float rotateAxisDeadZone = .25f;
 	
 	private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Joystick1Button3))
-        {
-            Move(currentDirection);
-        }
-        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.Joystick1Button1))
+        float horizontalMoveAxisValue = Input.GetAxis("Horizontal");
+        Debug.Log("hor: " + horizontalMoveAxisValue);
+        if(horizontalMoveAxisValue > horizontalMoveAxisDeadZone)//same as key 'D'
         {
             Move(currentDirection.GetNextClockwise());
         }
-        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.Joystick1Button0))
-        {
-            Move(currentDirection.GetOpposite());
-        }
-        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.Joystick1Button2))
+        if (horizontalMoveAxisValue < -(horizontalMoveAxisDeadZone))//same as key 'A'
         {
             Move(currentDirection.GetNextCounterclockwise());
         }
-        else if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.Joystick1Button4))
+
+        float verticalMoveAxisValue = Input.GetAxis("Vertical");
+        Debug.Log("vert: " + verticalMoveAxisValue);
+        if (verticalMoveAxisValue > verticalMoveAxisDeadZone)//same as key 'W'
+        {
+            Move(currentDirection);
+        }
+        if (verticalMoveAxisValue < -(verticalMoveAxisDeadZone))//same as key 'S'
+        {
+            Move(currentDirection.GetOpposite());
+        }
+
+        float rotateAxisValue = Input.GetAxis("Rotate");
+        Debug.Log("rot: " + rotateAxisValue);
+        if (rotateAxisValue < -(rotateAxisDeadZone))//same as key 'Q'
         {
             Rotate(currentDirection.GetNextCounterclockwise());
         }
-        else if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button5))
+        if (rotateAxisValue > rotateAxisDeadZone)//same as key 'E'
+        {
+            Rotate(currentDirection.GetNextClockwise());
+        }
+        
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            Move(currentDirection);
+        }
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            Move(currentDirection.GetNextClockwise());
+        }
+        else if (Input.GetKeyDown(KeyCode.S))
+        {
+            Move(currentDirection.GetOpposite());
+        }
+        else if (Input.GetKeyDown(KeyCode.A))
+        {
+            Move(currentDirection.GetNextCounterclockwise());
+        }
+        else if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Rotate(currentDirection.GetNextCounterclockwise());
+        }
+        else if (Input.GetKeyDown(KeyCode.E))
         {
             Rotate(currentDirection.GetNextClockwise());
         }

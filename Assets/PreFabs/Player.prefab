@@ -159,6 +159,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e58ccdc77f3312f4ca480f1d716c7ef2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  horizontalMoveAxisDeadZone: .99000001
+  verticalMoveAxisDeadZone: .99000001
+  rotateAxisDeadZone: .99000001
 --- !u!124 &12492074
 Behaviour:
   m_ObjectHideFlags: 1
