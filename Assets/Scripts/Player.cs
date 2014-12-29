@@ -41,7 +41,7 @@ public class Player : MonoBehaviour {
 	private void Update()
     {
         float horizontalMoveAxisValue = Input.GetAxis("Horizontal");
-        Debug.Log("hor: " + horizontalMoveAxisValue);
+        //Debug.Log("hor: " + horizontalMoveAxisValue);
         if(horizontalMoveAxisValue > horizontalMoveAxisDeadZone)//same as key 'D'
         {
             Move(currentDirection.GetNextClockwise());
@@ -52,7 +52,7 @@ public class Player : MonoBehaviour {
         }
 
         float verticalMoveAxisValue = Input.GetAxis("Vertical");
-        Debug.Log("vert: " + verticalMoveAxisValue);
+        //Debug.Log("vert: " + verticalMoveAxisValue);
         if (verticalMoveAxisValue > verticalMoveAxisDeadZone)//same as key 'W'
         {
             Move(currentDirection);
@@ -63,7 +63,7 @@ public class Player : MonoBehaviour {
         }
 
         float rotateAxisValue = Input.GetAxis("Rotate");
-        Debug.Log("rot: " + rotateAxisValue);
+        //Debug.Log("rot: " + rotateAxisValue);
         if (rotateAxisValue < -(rotateAxisDeadZone))//same as key 'Q'
         {
             Rotate(currentDirection.GetNextCounterclockwise());

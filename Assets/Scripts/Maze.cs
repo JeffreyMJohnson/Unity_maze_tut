@@ -14,6 +14,8 @@ public class Maze : MonoBehaviour {
 
 	public MazeDoor doorPrefab;
 
+    public Coin coinPrefab;
+
 	[Range(0f, 1f)]
 	public float doorProbability;
 
@@ -58,6 +60,10 @@ public class Maze : MonoBehaviour {
         {
             rooms[i].Hide();
         }
+
+        //add a coin
+        Coin newCoin = Instantiate(coinPrefab) as Coin;
+        newCoin.transform.position = new Vector3(0, .75f, 0);
 	}
 
     //place to start maze gen
