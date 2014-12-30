@@ -14,6 +14,14 @@ public class MazeRoom : ScriptableObject {
 		cells.Add(cell);
 	}
 
+    public MazeCell RandomCell
+    {
+        get
+        {
+            return cells[Random.Range(0, cells.Count)];
+        }
+    }
+
     public void Assimilate(MazeRoom room)
     {
         for (int i = 0; i < room.cells.Count; ++i)

@@ -242,6 +242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mazePrefab: {fileID: 11400000, guid: 2ec0fe5babc97f54b88eb4424ca38f2a, type: 2}
   playerPrefab: {fileID: 11432810, guid: 1ce643ec10b2119499450676d1c8239a, type: 2}
+  coinPrefab: {fileID: 11419344, guid: 77a7b65e77cb3a54abce7837099541c9, type: 2}
 --- !u!4 &1464554643
 Transform:
   m_ObjectHideFlags: 0
