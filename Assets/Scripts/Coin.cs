@@ -14,4 +14,6 @@ public class Coin : MonoBehaviour {
     {
         transform.localPosition = cell.transform.localPosition + new Vector3(0, .75f,0);
     }
+
+    
 }

@@ -15,11 +15,17 @@ public class Player : MonoBehaviour {
         transform.localPosition = cell.transform.localPosition;
         currentCell.OnPlayerEntered();
     }
-
+ 
     private void Rotate(MazeDirection direction)
     {
         transform.localRotation = direction.ToRotation();
         currentDirection = direction;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        PlayerPrefs.SetString("winningTime", FindObjectOfType<UICanvas>().GetTime());
+        FindObjectOfType<GameManager>().GameOver();
     }
 
     private void Move(MazeDirection direction)

@@ -7,10 +7,13 @@ public class GameManager : MonoBehaviour
     public Maze mazePrefab;
     public Player playerPrefab;
     public Coin coinPrefab;
+    public UICanvas canvasPrefab;
 
     private Maze mazeInstance;
     private Player playerInstance;
     private Coin coinInstance;
+    private UICanvas canvasInstance;
+
 
     //coroutine because of maze generation stepping 
     private void Start()
@@ -32,9 +35,11 @@ public class GameManager : MonoBehaviour
     {
         Camera.main.clearFlags = CameraClearFlags.Skybox;
         Camera.main.rect = new Rect(0f, 0f, 1f, 1f);
-        mazeInstance = Instantiate(mazePrefab) as Maze;
+
+       mazeInstance = Instantiate(mazePrefab) as Maze;
         yield return StartCoroutine(mazeInstance.Generate());
-        //set timer
+
+        canvasInstance = Instantiate(canvasPrefab) as UICanvas;
 
         playerInstance = Instantiate(playerPrefab) as Player;
         //debug 
@@ -46,6 +51,11 @@ public class GameManager : MonoBehaviour
         Camera.main.clearFlags = CameraClearFlags.Depth;
         Camera.main.rect = new Rect(0f, 0f, .5f, .5f);
 
+    }
+
+    public void GameOver()
+    {
+       Application.LoadLevel("WinScene");
     }
 
     //called is space bar hit
@@ -61,6 +71,10 @@ public class GameManager : MonoBehaviour
         if (coinInstance != null)
         {
             Destroy(coinInstance.gameObject);
+        }
+        if (canvasInstance != null)
+        {
+            Destroy(canvasInstance.gameObject);
         }
         StartCoroutine(BeginGame());
     }
