@@ -22,4 +22,16 @@ private string winningTime;
             }
         }
 	}
+
+    public void NewMazeButtonClick()
+    {
+        PlayerPrefs.DeleteAll();
+        Application.LoadLevel("GamePlay");
+    }
+
+    public void QuitToMainMenuOnClick()
+    {
+        PlayerPrefs.DeleteAll();
+        Application.LoadLevel("MainMenu");
+    }
 }
