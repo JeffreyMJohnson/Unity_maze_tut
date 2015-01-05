@@ -46,11 +46,11 @@ public class GameManager : MonoBehaviour
 
         playerInstance = Instantiate(playerPrefab) as Player;
         //debug 
-        //playerInstance.SetLocation(mazeInstance.GetCell(mazeInstance.RandomCoordinates));
-        playerInstance.SetLocation(mazeInstance.GetCell(new IntVector2(0, 0)));
+        playerInstance.SetLocation(mazeInstance.GetCell(mazeInstance.RandomCoordinates));
+        //playerInstance.SetLocation(mazeInstance.GetCell(new IntVector2(0, 0)));
         coinInstance = Instantiate(coinPrefab) as Coin;
-        //coinInstance.SetLocation(mazeInstance.GetCell(mazeInstance.RandomCoordinates));
-        coinInstance.SetLocation(mazeInstance.GetCell(new IntVector2(0, 3)));
+        coinInstance.SetLocation(mazeInstance.GetCell(mazeInstance.RandomCoordinates));
+        //coinInstance.SetLocation(mazeInstance.GetCell(new IntVector2(0, 3)));
         Camera.main.clearFlags = CameraClearFlags.Depth;
         Camera.main.rect = new Rect(0f, 0f, .5f, .5f);
 
