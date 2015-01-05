@@ -11,20 +11,28 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
 
-       if (highScoresList.Count == 0)
-        {
-            highScoresList.Add(new HighScore("Jeff", 3, 1.23f));
-            highScoresList.Add(new HighScore("Foo", 5, 0.0f));
-            highScoresList.Add(new HighScore("Bar", 4, 3.5f));
-            highScoresList.Add(new HighScore("Jeff", 1, 1.23f));
-            highScoresList.Add(new HighScore("Foo", 2, 0.0f));
-            highScoresList.Add(new HighScore("Bar", 4, 23.5f));
-            highScoresList.Sort(new ScoreComparer());
-        }
-       Debug.Log("foo");
-       if (highScoresList.Count == 0)
-           LoadScores();
+        if (highScoresList.Count == 0)
+            LoadScores();
 
+    }
+
+    public static void AddScore(HighScore a_score)
+    {
+        highScoresList.Add(a_score);
+        highScoresList.Sort(new HighScoreComparer());
+        if (highScoresList.Count > 5)
+        {
+            highScoresList.RemoveRange(5, highScoresList.Count - 5);
+        }
+    }
+
+    public static bool IsHighScore(float a_score)
+    {
+        if (a_score < highScoresList[highScoresList.Count - 1].time)
+        {
+            return true;
+        }
+        return false;
     }
 
     public void StartGameOnClick()
@@ -52,12 +60,21 @@ public class MainMenu : MonoBehaviour
 
     void LoadScores()
     {
-        
+
         if (File.Exists(highScoresFilepath))
         {
-            FileStream fileStream = new FileStream(highScoresFilepath, FileMode.Open);
-            Debug.Log("size: " + fileStream.Length);
-            fileStream.Close();
+            //FileStream fileStream = new FileStream(highScoresFilepath, FileMode.Open);
+            StreamReader file = new StreamReader(highScoresFilepath);
+            while (!file.EndOfStream)
+            {
+                string line = file.ReadLine();
+                Debug.Log("line: " + line);
+                string[] data = line.Split(',');
+                HighScore score = new HighScore(data[0], float.Parse(data[1]));
+                highScoresList.Add(score);
+            }
+
+            file.Close();
         }
         else
         {
@@ -75,65 +92,11 @@ public class MainMenu : MonoBehaviour
         for (int i = 0; i < maxCount; i++)
         {
             HighScore s = highScoresList[i];
-            file.WriteLine(s.name + "," + s.minutes + "," + s.seconds);
+            file.WriteLine(s.name + "," + s.time);
         }
         file.Close();
-        
-    }
-
-    class ScoreComparer : IComparer<HighScore>
-    {
-        public int Compare(HighScore x, HighScore y)
-        {
-            if (x == null)
-            {
-                if (y == null)
-                {
-                    //if x is null and y is null they are equal
-                    return 0;
-                }
-                else
-                {
-                    //if x is null and y is not, y is greater
-                    return -1;
-                }
-            }
-            else
-            {
-                //if x is not null...
-                if (y == null)
-                {
-                    //... and y is null, x is greater
-                    return 1;
-                }
-                else
-                {
-                    //... and y is not null, compare the scores
-                    //if mins are not equal
-                    if (x.minutes != y.minutes)
-                    {
-                        return (x.minutes > y.minutes) ? 1 : -1;
-                    }
-                    else
-                    {
-                        //mins are equal check secs
-                        if (FloatEquals(x.seconds, y.seconds, .0001f))
-                        {
-                            return 0;
-                        }
-                        else
-                        {
-                            return (x.seconds > y.seconds) ? 1 : -1;
-                        }
-                    }
-                }
-            }
-        }
-
-        private bool FloatEquals(float x, float y, float delta)
-        {
-            return Mathf.Abs(x - y) < delta;
-        }
 
     }
+
+    
 }

@@ -18,8 +18,9 @@ public class HighScores : MonoBehaviour
             if (t.tag == "highScore" && highScoreIndex < highScoreCount)
             {
                 HighScore hScore = MainMenu.highScoresList[highScoreIndex];
-                t.text = hScore.name + " - " +
-                    hScore.minutes + ":" + hScore.seconds;
+                //t.text = hScore.name + " - " +
+                //    hScore.minutes + ":" + hScore.seconds;
+                t.text = hScore.name + " - " + hScore.timeFormatted;
                 highScoreIndex++;
             }
             else if (t.tag == "highScore")

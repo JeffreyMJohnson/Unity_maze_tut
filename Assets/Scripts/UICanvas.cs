@@ -10,6 +10,7 @@ public class UICanvas : MonoBehaviour
     string timeString;
     float totalTime = 0.0f;
     int min, sec, milli;
+    HighScore score = new HighScore();
     void Start()
     {
         text = GetComponentInChildren<Text>();
@@ -19,10 +20,20 @@ public class UICanvas : MonoBehaviour
 
     }
 
-    public string GetTime()
+    //public string GetTime()
+    //{
+    //    return text.text;
+    //}
+
+    public float GetTime()
     {
-        return text.text;
+        return totalTime;
     }
+
+    //public HighScore GetHighScore()
+    //{
+    //    return new HighScore(totalTime);
+    //}
 
     // Update is called once per frame
     void Update()

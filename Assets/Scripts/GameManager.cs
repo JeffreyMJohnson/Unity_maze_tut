@@ -14,10 +14,13 @@ public class GameManager : MonoBehaviour
     private Coin coinInstance;
     private UICanvas canvasInstance;
 
+    public static float score;
+
 
     //coroutine because of maze generation stepping 
     private void Start()
     {
+        score = 0.0f;
         StartCoroutine(BeginGame());
     }
 
@@ -53,8 +56,9 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void GameOver()
+    public void GameOver(float a_score)
     {
+        score = a_score;
        Application.LoadLevel("WinScene");
     }
 
@@ -63,6 +67,7 @@ public class GameManager : MonoBehaviour
     {
         //this stops the maze generation if it's in the process
         StopAllCoroutines();
+        score = 0.0f;
         Destroy(mazeInstance.gameObject);
         if (playerInstance != null)
         {

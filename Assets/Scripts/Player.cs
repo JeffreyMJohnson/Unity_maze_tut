@@ -24,8 +24,9 @@ public class Player : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        PlayerPrefs.SetString("winningTime", FindObjectOfType<UICanvas>().GetTime());
-        FindObjectOfType<GameManager>().GameOver();
+        //PlayerPrefs.SetString("winningTime", FindObjectOfType<UICanvas>().GetTime());
+
+        FindObjectOfType<GameManager>().GameOver(FindObjectOfType<UICanvas>().GetTime());
     }
 
     private void Move(MazeDirection direction)
